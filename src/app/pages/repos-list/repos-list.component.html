@@ -1,0 +1,19 @@
+<table *ngIf="!loading">
+  <thead>
+    <td>Nome</td>
+    <td>Nome Completo</td>
+    <td>Descrição</td>
+    <td>Clone URL</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let repo of repositories">
+      <td>{{repo.name}}</td>
+      <td>{{repo.full_name}}</td>
+      <td>{{repo.description}}</td>
+      <td>{{repo.clone_url}}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="loading">
+  <app-loading></app-loading>
+</div>

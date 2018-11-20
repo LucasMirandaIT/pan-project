@@ -1,0 +1,20 @@
+<div class="page">
+  <div class="sidebar" (mouseenter)="expandMenu()" (mouseleave)="collapseMenu()">
+    <img class="logo" src="./assets/img/pan_logo.png" />
+    <ul>
+      <li> <a routerLink=""> <span class="leader">P</span><span class="detail">ágina Inicial</span> </a> </li>
+      <li> <a routerLink="repo-list"> <span class="leader">R</span><span class="detail">epositórios</span> </a> </li>
+    </ul>
+    <div style="position: absolute; bottom: 0; width: 100%">
+      <img class="avatar" (click)="logoutInfo()" [src]="userLogged.avatar_url" />
+      <div class="arrow-box">
+        <div id="logout-info">
+          <p>{{userLogged.login}}</p>
+          <p>Public Repos: {{userLogged.public_repos}}</p>
+          <p>Private Repos: {{userLogged.plan.private_repos}}</p>
+          <button (click)="logout()">Fazer Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
