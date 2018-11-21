@@ -1,21 +1,23 @@
 <div class="header">
   <h2>Lista de Repositórios</h2>
-  <a [href]="userLogged.html_url"><h3>{{userLogged.html_url}}</h3></a>
+  <a [href]="userLogged.html_url">
+    <h3>{{userLogged.html_url}}</h3>
+  </a>
 </div>
-<table *ngIf="!loading">
+<table align="center" *ngIf="!loading">
   <thead>
     <td>Nome</td>
-    <td>Nome Completo</td>
     <td>Descrição</td>
-    <td>Clone URL</td>
+    <td>Stars</td>
+    <td>Forks</td>
   </thead>
   <tbody>
-    <tr *ngFor="let repo of repositories">
-      <td>{{repo.name}}</td>
-      <td>{{repo.full_name}}</td>
-      <td>{{repo.description}}</td>
-      <td>{{repo.clone_url}}</td>
-    </tr>
+    <tr *ngFor="let repo of repositories" (click)="tableClick(repo.html_url)">
+        <td>{{repo.name}}</td>
+        <td>{{repo.description}}</td>
+        <td>{{repo.stargazers_count}}</td>
+        <td>{{repo.forks_count}}</td>
+      </tr>
   </tbody>
 </table>
 <div *ngIf="loading">

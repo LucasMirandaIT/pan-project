@@ -26,4 +26,8 @@ export class ReposListComponent implements OnInit {
     });
   }
 
+  tableClick(url) {
+    console.log('Clicked');
+    window.open(url);
+  }
 }
