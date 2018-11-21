@@ -6,144 +6,6 @@
     left: 0;
 }
 
-input,
-span,
-label,
-textarea {
-  font-family: 'Ubuntu', sans-serif;
-  display: block;
-  margin: 10px;
-  padding: 5px;
-  border: none;
-  font-size: 22px;
-}
-
-textarea:focus,
-input:focus {
-  outline: 0;
-}
-/* Question */
-
-input.question,
-textarea.question {
-  font-size: 48px;
-  font-weight: 300;
-  border-radius: 2px;
-  margin: 0;
-  border: none;
-  width: 80%;
-  background: rgba(0, 0, 0, 0);
-  transition: padding-top 0.2s ease, margin-top 0.2s ease;
-  overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
-}
-/* Underline and Placeholder */
-
-input.question + label,
-textarea.question + label {
-  display: block;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
-  margin: 0;
-  width: 10%;
-  border-top: 1px solid red;
-  -webkit-transition: width 0.4s ease;
-  transition: width 0.4s ease;
-  height: 0px;
-}
-
-input.question:focus + label,
-textarea.question:focus + label {
-  width: 80%;
-}
-
-input.question:focus,
-input.question:valid {
-  padding-top: 35px;
-}
-
-textarea.question:valid,
-textarea.question:focus {
-  margin-top: 35px;
-}
-
-input.question:focus + label > span,
-input.question:valid + label > span {
-  top: -100px;
-  font-size: 22px;
-  color: #333;
-}
-
-textarea.question:focus + label > span,
-textarea.question:valid + label > span {
-  top: -150px;
-  font-size: 22px;
-  color: #333;
-}
-
-input.question:valid + label,
-textarea.question:valid + label {
-  border-color: green;
-}
-
-input.question:invalid,
-textarea.question:invalid {
-  box-shadow: none;
-}
-
-input.question + label > span,
-textarea.question + label > span {
-  font-weight: 300;
-  margin: 0;
-  position: absolute;
-  color: #8F8F8F;
-  font-size: 48px;
-  top: -66px;
-  left: 0px;
-  z-index: -1;
-  -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-}
-
-input[type="submit"] {
-  -webkit-transition: opacity 0.2s ease, background 0.2s ease;
-  transition: opacity 0.2s ease, background 0.2s ease;
-  display: block;
-  opacity: 0;
-  margin: 10px 0 0 0;
-  padding: 10px;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background: #EEE;
-}
-
-input[type="submit"]:active {
-  background: #999;
-}
-
-input.question:valid ~ input[type="submit"], textarea.question:valid ~ input[type="submit"] {
-  -webkit-animation: appear 1s forwards;
-  animation: appear 1s forwards;
-}
-
-input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input[type="submit"] {
-  display: none;
-}
-
-@-webkit-keyframes appear {
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes appear {
-  100% {
-    opacity: 1;
-  }
-}
-
 ////////////////////////////////////////////////////////
 /////                                              /////
 /////             New Login Styles                 /////
@@ -163,7 +25,7 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 }
 
 .login {
-  max-width: 280px;
+  max-width: 350px;
   min-height: 500px;
   margin: 30px auto;
   background-color: rgba(10,10,10,.68);
@@ -172,29 +34,24 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 .login-icon-field {
   height: 250px;
   width: 100%;
-  /*background-color: red;*/
 }
 
 .login-icon {
   margin: 50px 65px;
   width: 160px;
+  margin-left: calc(50% - 80px);
 }
 
 .login-form {
   padding: 8px 20px 20px;
   height: 120px;
   width: 100%;
-  /*background-color: green;*/
-}
-
-.row {
-  display: none;
 }
 
 .username-row {
   position: relative;
   height: 40px;
-  /*background-color: pink;*/
+  width: 88%;
   border-bottom: 1px solid;
   margin-bottom: 10px;
 }
@@ -202,7 +59,7 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 .password-row {
   position: relative;
   height: 40px;
- /* background-color: grey;*/
+  width: 88%;
   border-bottom: 1px solid;
 }
 
@@ -232,10 +89,13 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 
 input {
   position: absolute;
+  top: 0px;
+  left: 50px;
   width: 195px;
   height: 30px;
   margin: 5px 0;
   background: transparent;
+  color: white;
   border: none;
 }
 
@@ -256,25 +116,28 @@ input::-moz-placeholder {
   margin: 22px 0;
   height: 130px;
   width: 100%;
-  /*background-color: blue;*/
 }
 
 button {
-  display: block;
-  width: 240px;
-  height: 40px;
-  padding: 0;
-  margin: 10px 20px 10px;
-  font-weight: 700;
-  color: #fff;
-  background-color: #22c08a;
-  border: none;
-  border-radius: 20px;
-  transition: background-color .10s ease-in-out;
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
+  &#login-button{
+    display: block;
+    width: 240px;
+    height: 40px;
+    padding: 0;
+    margin: 10px 20px 10px;
+    margin-left: calc(50% - 120px);
+    font-weight: 700;
+    color: #fff;
+    background-color: #22c08a;
+    border: none;
+    border-radius: 20px;
+    transition: background-color .10s ease-in-out;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: pointer;
+  }
 }
 
 button:hover {
