@@ -1,3 +1,7 @@
+<div class="header">
+  <h2>Lista de Repositórios</h2>
+  <a [href]="userLogged.html_url"><h3>{{userLogged.html_url}}</h3></a>
+</div>
 <table *ngIf="!loading">
   <thead>
     <td>Nome</td>
@@ -15,5 +19,5 @@
   </tbody>
 </table>
 <div *ngIf="loading">
-  <app-loading></app-loading>
+  <app-loading color="#666" [text]="'Carregando Dados...'"></app-loading>
 </div>

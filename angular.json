@@ -27,9 +27,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "../node_modules/toastr/toastr.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/toastr/toastr.min.js"
+            ]
           },
           "configurations": {
             "production": {

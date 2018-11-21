@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
+
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,9 @@ import { User } from 'src/app/models/user';
 })
 export class LoginComponent implements OnInit {
 
+  toastr;
+
+  loading: boolean;
   username;
   password;
 
@@ -19,13 +24,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(username, password) {
+    this.loading = true;
     this.auth.login(username, password).toPromise().then((retorno: any) => {
+      this.loading = false;
       sessionStorage.setItem('userLogged', retorno._body);
       this.auth.loggedIn.next(true);
       this.router.navigate(['/'])
     }).catch((err: any) => {
+      this.loading = false;
       this.auth.loggedIn.next(false);
-      console.log('Error at Login', JSON.parse(err._body));
+      alert('Erro! \nVerifique os dados informados e tente novamente!');
     })
   }
 

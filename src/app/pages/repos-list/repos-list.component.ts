@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RepoListService } from 'src/app/services/repo-list/repo-list.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-repos-list',
@@ -9,11 +10,13 @@ import { RepoListService } from 'src/app/services/repo-list/repo-list.service';
 export class ReposListComponent implements OnInit {
 
   repositories;
+  userLogged;
   loading = true;
 
   constructor(private repoService: RepoListService) { }
 
   ngOnInit() {
+    this.userLogged = JSON.parse(sessionStorage.getItem('userLogged'));    
     let username = 'LucasMirandaIT';
     let password = 'luquinhasm2015';
     this.repoService.getRepos(username, password).toPromise().then((response: any) => {
