@@ -38,7 +38,9 @@ export class HeaderComponent implements OnInit {
 
   logoutInfo() {
     let elem = document.getElementById("logout-info");
+    let arrow = document.getElementById("marker");
     elem.classList.toggle("active");
+    arrow.classList.toggle("active");
   }
 
   logout() {
