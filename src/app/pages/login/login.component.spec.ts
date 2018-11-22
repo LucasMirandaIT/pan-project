@@ -21,5 +21,11 @@ describe('LoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.loading).toBeFalsy();
+  });
+
+  it ('test Login()', () => {
+    expect(component.login('teste', 'teste')).toThrowError;
+    expect(component.loading).toBeFalsy;
   });
 });
