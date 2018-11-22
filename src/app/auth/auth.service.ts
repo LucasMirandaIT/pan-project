@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   loggedIn = new BehaviorSubject<boolean>(false);
-  userLogged: User;
+  userLogged;
+  userCredentials;
 
   constructor(private http: Http, private router: Router) { }
 
@@ -30,6 +31,7 @@ export class AuthService {
   login(username, password) {
     let headers: Headers = new Headers();
     let userAuth = `${username}:${password}`;
+    this.userCredentials = btoa(userAuth);
     headers.append("Authorization", "Basic "+ btoa(userAuth));
     return this.http.get(environment.URL_GITHUB_AUTH, {headers: headers});
   }

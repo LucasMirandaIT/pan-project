@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 
 @Component({
@@ -12,7 +10,6 @@ import { toBase64String } from '@angular/compiler/src/output/source_map';
 })
 export class LoginComponent implements OnInit {
 
-  toastr;
 
   loading: boolean;
   username;

@@ -28,11 +28,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "../node_modules/toastr/toastr.min.css"
             ],
-            "scripts": [
-              "../node_modules/toastr/toastr.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

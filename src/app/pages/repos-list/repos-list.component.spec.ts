@@ -21,5 +21,10 @@ describe('ReposListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.loading).toBeFalsy();
+    expect(component.repositories).toBeNull();
+    expect(component.userLogged).toBeNull();
   });
+
+  it('')
 });

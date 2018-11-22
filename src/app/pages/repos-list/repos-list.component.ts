@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RepoListService } from 'src/app/services/repo-list/repo-list.service';
-import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-repos-list',
@@ -17,15 +16,16 @@ export class ReposListComponent implements OnInit {
 
   ngOnInit() {
     this.userLogged = JSON.parse(sessionStorage.getItem('userLogged'));    
-    let username = 'LucasMirandaIT';
-    let password = 'luquinhasm2015';
-    this.repoService.getRepos(username, password).toPromise().then((response: any) => {
+    this.refreshRepos();
+  }
+
+  refreshRepos() {
+    this.repoService.getRepos().toPromise().then((response: any) => {
       this.loading = false;
       this.repositories = JSON.parse(response._body);
       console.log(this.repositories);
     });
   }
-
   tableClick(url) {
     console.log('Clicked');
     window.open(url);
